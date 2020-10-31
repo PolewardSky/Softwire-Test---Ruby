@@ -17,6 +17,6 @@ class Cinema
   private
 
     def process_layout(layout)
-      layout.each_with_index.map {|x, i| x.map {|j| {:row => i, :column => j, :booked => false} }}
+      layout.each_with_index.map {|x, i| x.map {|j| {:row => i, :column => j, :booked => false} }}.flatten
     end
 end
