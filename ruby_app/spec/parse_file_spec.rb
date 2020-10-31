@@ -23,4 +23,9 @@ describe ParseFile do
     parse_invalid_file.load_file
     expect(parse_file.file_data).to eq(nil)
   end
+
+  it 'parses the data correctly' do
+    parse_file.load_file
+    expect(parse_file.file_data.first).to eq({:id => "0", :row_index => "47", :first_seat => "39", :column_index => "47", :last_seat => "41"})
+  end
 end
