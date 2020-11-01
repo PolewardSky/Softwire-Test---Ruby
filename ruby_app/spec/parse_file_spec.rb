@@ -26,6 +26,8 @@ describe ParseFile do
 
   it 'parses the data correctly' do
     parse_file.load_file
-    expect(parse_file.file_data.first).to eq({:id => 0, :row_start_index => 47, :first_seat => 39, :row_last_index => 47, :last_seat => 41})
+    expect(parse_file.file_data.first).to eq(
+      { id: 0, row_start_index: 47, first_seat: 39, row_last_index: 47, last_seat: 41 }
+    )
   end
 end

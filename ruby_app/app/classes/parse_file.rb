@@ -20,10 +20,16 @@ class ParseFile
     begin
       File.foreach(File.expand_path('../../' + file_name, File.dirname(__FILE__))) do |line|
         line_split = line.tr('()', '').split(',')
-        row_split = line_split[1].split(":")
-        column_split = line_split[2].split(":")
+        row_split = line_split[1].split(':')
+        column_split = line_split[2].split(':')
 
-        data = { :id => line_split[0].to_i, :row_start_index => row_split[0].to_i, :first_seat => row_split[1].to_i, :row_last_index => column_split[0].to_i, :last_seat => column_split[1].to_i }
+        data = {
+          id: line_split[0].to_i,
+          row_start_index: row_split[0].to_i,
+          first_seat: row_split[1].to_i,
+          row_last_index: column_split[0].to_i,
+          last_seat: column_split[1].to_i
+        }
 
         @file_data.push(data)
       end

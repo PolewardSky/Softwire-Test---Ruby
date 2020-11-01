@@ -1,10 +1,11 @@
 AllCops:
+  TargetRubyVersion: 2.7
   Exclude:
     - bin/*
 
 # Customize rules
 Metrics/LineLength:
-  Max: 95
+  Max: 120
 
 MethodLength:
   Max: 35
