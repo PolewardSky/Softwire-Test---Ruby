@@ -23,7 +23,7 @@ class ParseFile
         row_split = line_split[1].split(":")
         column_split = line_split[2].split(":")
 
-        data = { :id => line_split[0], :row_index => row_split[0], :first_seat => row_split[1], :column_index => column_split[0], :last_seat => column_split[1] }
+        data = { :id => line_split[0], :row_start_index => row_split[0], :first_seat => row_split[1], :row_last_index => column_split[0], :last_seat => column_split[1] }
 
         @file_data.push(data)
       end

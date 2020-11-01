@@ -4,3 +4,4 @@ source 'https://rubygems.org'
 
 gem 'rspec'
 gem 'rubocop'
+gem "activesupport", "~> 4.1.14"
