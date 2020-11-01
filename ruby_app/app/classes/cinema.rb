@@ -14,8 +14,8 @@ class Cinema
   def make_bookings(booking_data: [])
     booking_data.each_with_index do |bd, i|
       begin
-        if validate_booking_data(bd, columns = @layout.select{ |x| x[:row] == bd[:row_start_index].to_i })
-          columns = columns.select { |x| first_to_last_seat(bd[:first_seat].to_i, bd[:last_seat].to_i).include?(x[:column]) }
+        if validate_booking_data(bd, columns = @layout.select{ |x| x[:row] == bd[:row_start_index] })
+          columns = columns.select { |x| first_to_last_seat(bd[:first_seat], bd[:last_seat]).include?(x[:column]) }
           columns.each{|x|x[:booked] = true}
         else
           raise StandardError
@@ -33,10 +33,10 @@ class Cinema
     end
 
     def validate_booking_data(bd, columns)
-      first_seat = bd[:first_seat].to_i
-      last_seat = bd[:last_seat].to_i
-      row_start = bd[:row_start_index].to_i
-      row_end = bd[:row_last_index].to_i
+      first_seat = bd[:first_seat]
+      last_seat = bd[:last_seat]
+      row_start = bd[:row_start_index]
+      row_end = bd[:row_last_index]
 
       first_to_last = first_to_last_seat(first_seat, last_seat)
       first_minus_one_seat = columns.select{|x| x[:column] == first_seat - 1 }.first.try(:[], :booked)
