@@ -28,7 +28,7 @@ class Cinema
     layout.each_with_index.map { |x, i| x.map { |j| { row: i, column: j, booked: false } } }.flatten
   end
 
-  def validate_booking_data(bdata, columns)
+  def validate_booking_data(bdata, columns) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     first_seat = bdata[:first_seat]
     last_seat = bdata[:last_seat]
     row_start = bdata[:row_start_index]

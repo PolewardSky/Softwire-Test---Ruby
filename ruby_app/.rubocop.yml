@@ -4,7 +4,7 @@ AllCops:
     - bin/*
 
 # Customize rules
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 
 MethodLength:
